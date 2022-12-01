@@ -6,12 +6,15 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 02:14:25 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/07/15 21:35:18 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:12:32 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 # include <stdlib.h>
 # include <unistd.h>
 
