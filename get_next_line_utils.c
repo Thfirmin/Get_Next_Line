@@ -6,13 +6,13 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 01:28:52 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/07/15 21:36:40 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:27:05 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_calloc(int count, int size)
+void	*gnl_calloc(int count, int size)
 {
 	char	*ptr;
 	size_t	len;
@@ -26,7 +26,7 @@ void	*ft_calloc(int count, int size)
 	return ((void *) ptr);
 }
 
-char	*ft_strchr(char *str, int c)
+char	*gnl_strchr(char *str, int c)
 {
 	if (!str)
 		return (0);
@@ -39,7 +39,7 @@ char	*ft_strchr(char *str, int c)
 	return (0);
 }
 
-size_t	ft_strlen(char *str)
+size_t	gnl_strlen(char *str)
 {
 	size_t	len;
 

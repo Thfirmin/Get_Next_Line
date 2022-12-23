@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 02:14:25 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/07/23 05:09:00 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:27:03 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ typedef struct s_list
 char	*get_next_line(int fd);
 char	*read_line(int fd, char *str);
 char	*take_line(char *str);
-void	*ft_calloc(int count, int size);
-char	*ft_strchr(char *str, int c);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(char *str);
+void	*gnl_calloc(int count, int size);
+char	*gnl_strchr(char *str, int c);
+char	*gnl_strjoin(char *s1, char *s2);
+size_t	gnl_strlen(char *str);
 char	*take_line(char *str);
 char	*clean_buffer(char *buffer);
 t_list	*backup_line(int fd, t_list *list);
 t_list	*addnew_list(int fd, t_list *list);
-t_list	*ft_free(t_list *list, t_list *node);
+t_list	*gnl_free(t_list *list, t_list *node);
 
 #endif

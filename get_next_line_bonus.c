@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:49:21 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/07/23 05:08:53 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:27:01 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ char	*get_next_line(int fd)
 	{
 		free(node -> f_str);
 		node -> f_str = (void *)0;
-		list_files = ft_free(list_files, node);
+		list_files = gnl_free(list_files, node);
 		return (0);
 	}
 	node -> f_str = read_line(fd, node -> f_str);
 	line = take_line(node -> f_str);
 	node -> f_str = clean_buffer(node -> f_str);
 	if (!node -> f_str)
-		list_files = ft_free(list_files, node);
+		list_files = gnl_free(list_files, node);
 	return (line);
 }
 
@@ -49,11 +49,11 @@ char	*read_line(int fd, char *str)
 		free (str);
 		return (0);
 	}
-	while (!ft_strchr(str, '\n'))
+	while (!gnl_strchr(str, '\n'))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[bytes] = '\0';
-		str = ft_strjoin(str, buffer);
+		str = gnl_strjoin(str, buffer);
 		if ((!str) || ((bytes < BUFFER_SIZE) && (*str)))
 			break ;
 		else if ((*str == '\0') && (bytes <= 0))
@@ -67,7 +67,7 @@ char	*read_line(int fd, char *str)
 	return (str);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	size_t	len;
 	size_t	i;
@@ -77,7 +77,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (0);
 	newstr = (void *)0;
 	i = -1;
-	len = (ft_strlen(s1) + ft_strlen(s2));
+	len = (gnl_strlen(s1) + gnl_strlen(s2));
 	newstr = malloc((len + 1) * sizeof(char));
 	if (!newstr)
 	{
@@ -135,7 +135,7 @@ char	*clean_buffer(char *buffer)
 		len ++;
 	if (buffer[len] == '\n')
 		len ++;
-	str = malloc((ft_strlen(buffer + len) + 1) * sizeof(char));
+	str = malloc((gnl_strlen(buffer + len) + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	while (buffer[len])

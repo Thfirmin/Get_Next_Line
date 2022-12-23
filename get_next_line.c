@@ -6,7 +6,7 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:49:21 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/07/15 21:40:29 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:26:55 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (!str)
-		str = ft_calloc(1, 1);
+		str = gnl_calloc(1, 1);
 	if (read(fd, 0, 0) || BUFFER_SIZE <= 0)
 	{
 		free(str);
@@ -36,17 +36,17 @@ char	*read_line(int fd, char *str)
 	char	*buffer;
 	ssize_t	bytes;
 
-	buffer = ft_calloc(sizeof(char), (BUFFER_SIZE + 1));
+	buffer = gnl_calloc(sizeof(char), (BUFFER_SIZE + 1));
 	if (!buffer)
 	{
 		free (str);
 		return (0);
 	}
-	while (!ft_strchr(str, '\n'))
+	while (!gnl_strchr(str, '\n'))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		buffer[bytes] = '\0';
-		str = ft_strjoin(str, buffer);
+		str = gnl_strjoin(str, buffer);
 		if ((bytes < BUFFER_SIZE && *str) || !str)
 			break ;
 		else if (*str == '\0' && bytes <= 0)
@@ -60,7 +60,7 @@ char	*read_line(int fd, char *str)
 	return (str);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	size_t	len;
 	size_t	i;
@@ -68,8 +68,8 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	newstr = (void *)0;
 	i = 0;
-	len = (ft_strlen(s1) + ft_strlen(s2));
-	newstr = ft_calloc((len + 1), sizeof(char));
+	len = (gnl_strlen(s1) + gnl_strlen(s2));
+	newstr = gnl_calloc((len + 1), sizeof(char));
 	if (!newstr)
 	{
 		free (s1);
@@ -100,7 +100,7 @@ char	*take_line(char *str)
 		len ++;
 	if (str[len] == '\n')
 		len ++;
-	line = ft_calloc((len + 1), sizeof(char));
+	line = gnl_calloc((len + 1), sizeof(char));
 	if (!line)
 		return (0);
 	len = 0;
@@ -129,7 +129,7 @@ char	*clean_buffer(char *buffer)
 		len ++;
 	if (buffer[len] == '\n')
 		len ++;
-	str = ft_calloc((ft_strlen(buffer + len) + 1), sizeof(char));
+	str = gnl_calloc((gnl_strlen(buffer + len) + 1), sizeof(char));
 	if (!str)
 		return (0);
 	while (buffer[len])

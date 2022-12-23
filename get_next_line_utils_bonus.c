@@ -6,13 +6,13 @@
 /*   By: thfirmin <thfirmin@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 01:28:52 by thfirmin          #+#    #+#             */
-/*   Updated: 2022/07/23 05:09:06 by thfirmin         ###   ########.fr       */
+/*   Updated: 2022/12/23 15:27:08 by thfirmin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(char *str, int c)
+char	*gnl_strchr(char *str, int c)
 {
 	if (!str)
 		return (0);
@@ -25,7 +25,7 @@ char	*ft_strchr(char *str, int c)
 	return (0);
 }
 
-size_t	ft_strlen(char *str)
+size_t	gnl_strlen(char *str)
 {
 	size_t	len;
 
@@ -69,7 +69,7 @@ t_list	*addnew_list(int fd, t_list *list)
 	return (new);
 }
 
-t_list	*ft_free(t_list *list, t_list *node)
+t_list	*gnl_free(t_list *list, t_list *node)
 {
 	t_list	*aux;
 
