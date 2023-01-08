@@ -4,7 +4,7 @@ static char	*gnl_cutendl(char *f_line);
 
 static char	*gnl_getendl(char *f_line);
 
-static void	gnl_takendl(int fd, static char *line);
+static void	gnl_takendl(int fd, char **line);
 
 char	*get_next_line(int fd)
 {
@@ -17,7 +17,7 @@ char	*get_next_line(int fd)
 		return (0);
 	}
 	line = 0;
-	gnl_takendl(fd, b_line);
+	gnl_takendl(fd, &b_line);
 	if (b_line)
 	{
 		line = gnl_getendl(b_line);
@@ -26,7 +26,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-static void	gnl_takendl(int fd, static char *line)
+static void	gnl_takendl(int fd, char **line)
 {
 	char	*buffer;
 	char	*aux;
@@ -34,19 +34,16 @@ static void	gnl_takendl(int fd, static char *line)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-	{
-		free (line);
-		return(0);
-	}
-	while (!gnl_strchr(line, '\n'))
+		free (*line);
+	while (!gnl_strchr(*line, '\n') && buffer)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (!bytes)
 			break;
 		*(buffer + bytes) = '\0';
-		aux = gnl_strjoin(line, buffer);
-		free (line);
-		line = aux;
+		aux = gnl_strjoin(*line, buffer);
+		free (*line);
+		*line = aux;
 	}
 	free (buffer);
 }
@@ -82,7 +79,9 @@ static char	*gnl_cutendl(char *f_line)
 	len = 0;
 	while (*(f_line + i) && *(f_line + i) != '\n')
 		i ++;
-	if (!*(f_line + i++))
+	if (*(f_line + i) == '\n')
+		i ++;
+	if (!*(f_line + i))
 	{
 		free (f_line);
 		return (0);

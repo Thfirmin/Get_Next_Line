@@ -5,7 +5,7 @@ char	*gnl_strchr(const char *str, char chr)
 	while (str && *str)
 	{
 		if (*str == chr)
-			return (str);
+			return ((char *)str);
 		str ++;
 	}
 	return (0);
