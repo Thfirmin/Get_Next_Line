@@ -6,7 +6,7 @@
 #    By: thfirmin <thiagofirmino2001@gmail.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 21:07:07 by thfirmin          #+#    #+#              #
-#    Updated: 2023/01/08 02:22:40 by thfirmin         ###   ########.fr        #
+#    Updated: 2023/01/08 20:31:14 by thfirmin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,21 @@ bonus:	$(BN_OBJS) $(NAME)
 debug:	CFLAGS += -g
 
 debug:	re
+
+test: 1 42 10000000
+	@echo "\nmin_in: 0m0.000s\nmax_in: 0m0.084s\nmin_out: 0m0.167s\nmax_out: om0.378s\n"
+
+1:
+	@$(CC) -g main.c $(MDTRY_SRCS) -D BUFFER_SIZE=1
+	@./script.sh 1
+
+42:
+	@$(CC) -g main.c $(MDTRY_SRCS) -D BUFFER_SIZE=42
+	@./script.sh 42
+
+10000000:
+	@$(CC) -g main.c $(MDTRY_SRCS) -D BUFFER_SIZE=10000000
+	@./script.sh 10000000
 
 $(NAME):	$(OBJS)
 	ar rcs $(NAME) $(OBJS)
