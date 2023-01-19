@@ -1,0 +1,56 @@
+min_in: 0m0.000s
+max_in: 0m0.084s
+min_out: 0m0.167s
+max_out: om0.378s
+
+[BUFFER_SIZE = 1]:
+files/ola: 0m0.001s
+files/empty: 0m0.001s
+files/nl: 0m0.001s
+files/41_no_nl: 0m0.001s
+files/41_with_nl: 0m0.001s
+files/42_no_nl: 0m0.001s
+files/42_with_nl: 0m0.001s
+files/43_no_nl: 0m0.001s
+files/43_with_nl: 0m0.001s
+files/multiple_nlx5: 0m0.001s
+files/multiple_line_no_nl: 0m0.001s
+files/multiple_line_with_nl: 0m0.001s
+files/alternate_line_nl_no_nl: 0m0.001s
+files/alternate_line_nl_with_nl: 0m0.001s
+files/big_line_no_nl: 0m0.378s
+files/big_line_with_nl: 0m0.364s
+[BUFFER_SIZE = 42]:
+files/ola: 0m0.001s
+files/empty: 0m0.001s
+files/nl: 0m0.001s
+files/41_no_nl: 0m0.001s
+files/41_with_nl: 0m0.001s
+files/42_no_nl: 0m0.001s
+files/42_with_nl: 0m0.001s
+files/43_no_nl: 0m0.001s
+files/43_with_nl: 0m0.001s
+files/multiple_nlx5: 0m0.001s
+files/multiple_line_no_nl: 0m0.001s
+files/multiple_line_with_nl: 0m0.001s
+files/alternate_line_nl_no_nl: 0m0.001s
+files/alternate_line_nl_with_nl: 0m0.001s
+files/big_line_no_nl: 0m0.010s
+files/big_line_with_nl: 0m0.010s
+[BUFFER_SIZE = 10000000]:
+files/ola: 0m0.001s
+files/empty: 0m0.029s
+files/nl: 0m0.057s
+files/41_no_nl: 0m0.057s
+files/41_with_nl: 0m0.082s
+files/42_no_nl: 0m0.058s
+files/42_with_nl: 0m0.084s
+files/43_no_nl: 0m0.057s
+files/43_with_nl: 0m0.084s
+files/multiple_nlx5: 0m0.167s
+files/multiple_line_no_nl: 0m0.170s
+files/multiple_line_with_nl: 0m0.168s
+files/alternate_line_nl_no_nl: 0m0.268s
+files/alternate_line_nl_with_nl: 0m0.266s
+files/big_line_no_nl: 0m0.059s
+files/big_line_with_nl: 0m0.057s
